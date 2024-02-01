@@ -1,0 +1,21 @@
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    height: 4rem;
+    padding: 0 0.125rem 0 0.125rem;
+    max-width: 67.5rem; 
+    margin: auto;
+
+    h1 {
+        color: #fff;
+    }
+}
+
+@media screen and (min-width: 48rem) { 
+    .main-header {
+        padding: 0 0.75rem 0 0.75rem; 
+    }
+}

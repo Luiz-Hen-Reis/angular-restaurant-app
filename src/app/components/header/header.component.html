@@ -1,5 +1,11 @@
 <header class="main-header">
     <h1>NakaPoke</h1>
     
-    <button mat-raised-button color="warn">Fazer Login</button>
+    <div class="header-rightside">
+        <button *ngIf="user === ''; else loggedIn" mat-raised-button color="warn">Fazer Login</button>
+    </div>
 </header>
+
+<ng-template #loggedIn class="header-rightside--shopping_basket">
+    <mat-icon class="shopping-basket-icon">shopping_basket</mat-icon>
+</ng-template>

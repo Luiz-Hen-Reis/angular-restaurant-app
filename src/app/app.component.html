@@ -1,6 +1,12 @@
-<div class="flex-container">
+<div *ngIf="currentRoute !== '/auth'; else authPage" class="flex-container">
     <app-header></app-header>
     <main>
       <router-outlet></router-outlet>
     </main>
   </div>
+  
+  <ng-template #authPage>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </ng-template>

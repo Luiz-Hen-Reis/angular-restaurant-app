@@ -9,6 +9,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { AuthComponent } from './pages/auth/auth.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { TabsComponent } from './components/tabs/tabs.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     HeaderComponent,
     AuthComponent,
     HomeComponent,
+    TabsComponent,
+    CategoriesComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

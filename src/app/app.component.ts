@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,10 @@ export class AppComponent {
   title = 'Nakapoke';
   currentRoute: string = '';
 
-  constructor(private router: Router) {  }
-
-  ngOnInit() {
-    this.currentRoute = this.router.url
-  }
+  constructor(private router: Router) { 
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)).subscribe(() => {
+        this.currentRoute = this.router.url;
+      })
+   }
 }

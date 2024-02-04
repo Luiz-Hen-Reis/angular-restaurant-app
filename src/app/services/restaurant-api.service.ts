@@ -10,7 +10,7 @@ export class RestaurantApiService {
 
   constructor(private http: HttpClient) { }
 
-  getAllProducts() {
-    return this.http.get<ProductList>(`${this.apiUrl}/api/v1/products`)
+  getProducts(page?: number, limit?: number) {
+    return this.http.get<ProductList>(`${this.apiUrl}/api/v1/products?page=${page}&limit=${limit}`)
   }
 }

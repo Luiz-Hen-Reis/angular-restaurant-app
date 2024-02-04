@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CategoryList } from 'src/types/category';
 import { ProductList } from 'src/types/product';
 
 @Injectable({
@@ -11,6 +12,10 @@ export class RestaurantApiService {
   constructor(private http: HttpClient) { }
 
   getProducts(page?: number, limit?: number) {
-    return this.http.get<ProductList>(`${this.apiUrl}/api/v1/products?page=${page}&limit=${limit}`)
+    return this.http.get<ProductList>(`${this.apiUrl}/api/v1/products?page=${page}&limit=${limit}`);
+  }
+
+  getCategories() {
+    return this.http.get<CategoryList>(`${this.apiUrl}/api/v1/categories`);
   }
 }

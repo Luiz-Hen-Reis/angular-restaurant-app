@@ -12,6 +12,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
-    MatTabsModule
+    MatTabsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

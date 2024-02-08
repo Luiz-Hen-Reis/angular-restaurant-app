@@ -15,7 +15,7 @@ import { TabsComponent } from './components/tabs/tabs.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ItemsListComponent } from './components/items-list/items-list.component';
+import { ProductsListComponent } from './components/products-list/products-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { ItemsListComponent } from './components/items-list/items-list.component
     TabsComponent,
     CategoriesComponent,
     CheckoutComponent,
-    ItemsListComponent,
+    ProductsListComponent,
   ],
   imports: [
     BrowserModule,

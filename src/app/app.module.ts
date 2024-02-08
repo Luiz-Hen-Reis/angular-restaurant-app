@@ -10,6 +10,7 @@ import { AuthComponent } from './pages/auth/auth.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import {MatCardModule} from '@angular/material/card';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 import { TabsComponent } from './components/tabs/tabs.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
@@ -35,6 +36,7 @@ import { ItemsListComponent } from './components/items-list/items-list.component
     MatIconModule,
     MatTabsModule,
     MatCardModule,
+    MatProgressSpinnerModule,
     HttpClientModule
   ],
   providers: [],

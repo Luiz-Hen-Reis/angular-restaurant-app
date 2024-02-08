@@ -9,11 +9,11 @@ import { Product } from 'src/types/product';
 })
 export class HomeComponent {
   products: Product[] = [];
-  page: number = 1;
-  limit: number = 6;
+  private page: number = 1;
+  private limit: number = 6;
+  apiUrl = 'http://localhost:4000'
 
   constructor(private restaurantApiService: RestaurantApiService) {  }
-  apiUrl = 'http://localhost:4000'
 
   ngOnInit() {
     this.getProducts(this.page, this.limit);

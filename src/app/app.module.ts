@@ -16,6 +16,7 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsListComponent } from './components/products-list/products-list.component';
+import { CategoriesListComponent } from './components/categories-list/categories-list.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ProductsListComponent } from './components/products-list/products-list.
     CategoriesComponent,
     CheckoutComponent,
     ProductsListComponent,
+    CategoriesListComponent,
   ],
   imports: [
     BrowserModule,

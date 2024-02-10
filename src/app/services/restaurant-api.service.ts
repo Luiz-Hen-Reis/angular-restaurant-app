@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CategoryList } from 'src/types/category';
+import { CategoryList, CategoryProduct } from 'src/types/category';
 import { ProductList } from 'src/types/product';
 
 @Injectable({
@@ -17,5 +17,9 @@ export class RestaurantApiService {
 
   getCategories() {
     return this.http.get<CategoryList>(`${this.apiUrl}/api/v1/categories`);
+  }
+
+  getCategoryProducts(categoryId: string) {
+    return this.http.get<CategoryProduct>(`${this.apiUrl}/api/v1/categories/${categoryId}`)
   }
 }

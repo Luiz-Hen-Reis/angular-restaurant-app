@@ -1,6 +1,6 @@
 <div class="categories-list-container" *ngIf="categories && categories.length > 0 ; else loading">
     <ul>
-        <li *ngFor="let category of categories">
+        <li *ngFor="let category of categories" (click)="navigateToCategory(category.id)">
             <mat-card>
                 <img mat-card-image [src]="apiUrl + category.image_url" [alt]="category.name">
                 <mat-card-title>{{ category.name }}</mat-card-title>

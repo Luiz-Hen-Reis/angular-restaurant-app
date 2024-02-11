@@ -19,6 +19,7 @@ import { ProductsListComponent } from './components/products-list/products-list.
 import { CategoriesListComponent } from './components/categories-list/categories-list.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { LoadingComponent } from './components/loading/loading.component';
     MatTabsModule,
     MatCardModule,
     MatProgressSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

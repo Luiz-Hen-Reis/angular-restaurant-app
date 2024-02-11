@@ -1,1 +1,35 @@
-<p>auth works!</p>
+<div class="auth-container">
+    <h2 *ngIf="isRegister">Registrar</h2>
+    <h2 *ngIf="!isRegister">Login</h2>
+
+    <div *ngIf="!isRegister">
+      <label>Email:</label>
+      <input type="email" [(ngModel)]="email" name="email" required>
+  
+      <label>Senha:</label>
+      <input type="password" [(ngModel)]="password" name="password" required>
+  
+      <button (click)="login()">Login</button>
+    </div>
+
+    <div>
+        <div *ngIf="isRegister">
+            <label>Email:</label>
+            <input type="email" [(ngModel)]="email" name="email" required>
+        
+            <label>Senha:</label>
+            <input type="password" [(ngModel)]="password" name="password" required>
+        
+            <label>Confirmação da senha:</label>
+            <input type="password" [(ngModel)]="passwordConfirmation" name="passwordConfirmation" required>
+        
+            <button (click)="register()">Registrar</button>
+          </div>
+      
+          <p>
+            <span *ngIf="isRegister">Já possui uma conta? <a (click)="toggleRegister()">Login</a></span>
+            <span *ngIf="!isRegister">Ainda não possui uma conta? <a (click)="toggleRegister()">Registrar</a></span>
+          </p>
+    </div>
+  </div>
+  

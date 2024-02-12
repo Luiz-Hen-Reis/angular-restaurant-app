@@ -1,35 +1,38 @@
-<div class="auth-container">
-    <h2 *ngIf="isRegister">Registrar</h2>
-    <h2 *ngIf="!isRegister">Login</h2>
+<form class="auth-container" [formGroup]="userForm">
+    <h2 *ngIf="!userRegistered">Registrar</h2>
+    <h2 *ngIf="userRegistered">Login</h2>
 
-    <div *ngIf="!isRegister">
-      <label>Email:</label>
-      <input type="email" [(ngModel)]="email" name="email" required>
+    <div *ngIf="userRegistered">
+      <label for="email">Email:</label>
+      <input type="email" formControlName="email" name="email" required>
   
-      <label>Senha:</label>
-      <input type="password" [(ngModel)]="password" name="password" required>
+      <label for="password">Senha:</label>
+      <input type="password" formControlName="password" name="password" required>
   
       <button (click)="login()">Login</button>
     </div>
 
     <div>
-        <div *ngIf="isRegister">
-            <label>Email:</label>
-            <input type="email" [(ngModel)]="email" name="email" required>
+        <div *ngIf="!userRegistered">
+            <label for="name">Nome:</label>
+            <input type="text" formControlName="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" formControlName="email" name="email" required>
         
-            <label>Senha:</label>
-            <input type="password" [(ngModel)]="password" name="password" required>
+            <label for="password">Senha:</label>
+            <input type="password" formControlName="password" name="password" required>
         
-            <label>Confirmação da senha:</label>
-            <input type="password" [(ngModel)]="passwordConfirmation" name="passwordConfirmation" required>
+            <label for="passwordConfirmation">Confirmação da senha:</label>
+            <input type="password" formControlName="passwordConfirmation" name="passwordConfirmation" required>
         
             <button (click)="register()">Registrar</button>
           </div>
       
           <p>
-            <span *ngIf="isRegister">Já possui uma conta? <a (click)="toggleRegister()">Login</a></span>
-            <span *ngIf="!isRegister">Ainda não possui uma conta? <a (click)="toggleRegister()">Registrar</a></span>
+            <span *ngIf="!userRegistered">Já possui uma conta? <a (click)="toggleRegister()">Login</a></span>
+            <span *ngIf="userRegistered">Ainda não possui uma conta? <a (click)="toggleRegister()">Registrar</a></span>
           </p>
     </div>
-  </div>
+  </form>
   

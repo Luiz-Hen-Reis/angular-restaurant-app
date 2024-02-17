@@ -20,6 +20,7 @@ import { CategoriesListComponent } from './components/categories-list/categories
 import { CategoryComponent } from './pages/category/category.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

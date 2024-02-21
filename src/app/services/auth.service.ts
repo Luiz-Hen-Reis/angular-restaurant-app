@@ -1,6 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from 'src/types/user';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { User, UserResponse } from 'src/types/user';
+import { jwtDecode } from 'jwt-decode';
+import { Observable, catchError, map, of } from 'rxjs';
+
+interface Jwt {
+  user_id: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -8,9 +16,9 @@ import { User } from 'src/types/user';
 export class AuthService {
   readonly apiUrl = 'http://localhost:4000';
   user?: User;
-  token?: string;
+  private token?: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private cookieService: CookieService, private router: Router) { }
 
 
   registerNewUser(name: string, email: string, password: string, passwordConfirmation: string) {
@@ -31,9 +39,33 @@ export class AuthService {
         password
       }
   
-      return this.http.post<User>(`${this.apiUrl}/auth/login`, payload).subscribe(response => {
-        this.user === response
+      return this.http.post<UserResponse>(`${this.apiUrl}/auth/login`, payload).subscribe(response => {   
+        this.user = response
+        this.token = response.token
+        this.cookieService.set('user-token', this.token);
+        this.router.navigate(['/'])         
       });
+  }
 
+  isTokenValid(): Observable<User | null> {
+    try {
+      const token = this.cookieService.get('user-token');
+      const decodedToken: Jwt = jwtDecode(token);
+
+      return this.http.get<User>(`${this.apiUrl}/auth/users/${decodedToken.user_id}`)
+        .pipe(
+          map(response => {
+            this.user = response;
+            return this.user;
+          }),
+          catchError(error => {
+            console.log(error);
+            return of(null);
+          })
+        );
+    } catch (error) {
+      console.log(error);
+      return of(null); 
+    }
   }
 }

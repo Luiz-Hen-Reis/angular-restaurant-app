@@ -2,10 +2,11 @@
     <h1>NakaPoke</h1>
     
     <div class="header-rightside">
-        <button *ngIf="user === ''; else loggedIn" mat-raised-button color="warn">Fazer Login</button>
+        <button *ngIf="!user; else loggedIn" mat-raised-button color="warn">Fazer Login</button>
     </div>
 </header>
 
 <ng-template #loggedIn class="header-rightside--shopping_basket">
+    <p>{{ user?.name }}</p>
     <mat-icon class="shopping-basket-icon">shopping_basket</mat-icon>
 </ng-template>

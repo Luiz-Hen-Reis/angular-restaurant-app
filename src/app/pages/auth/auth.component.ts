@@ -23,8 +23,8 @@ export class AuthComponent {
    }
 
   login() {
-    const formData: UserAuthentication = this.userForm.value;
-    this.authServices.login(formData.email, formData.password);
+      const formData: UserAuthentication = this.userForm.value;
+      this.authServices.login(formData.email, formData.password);
   }
   
   register() {

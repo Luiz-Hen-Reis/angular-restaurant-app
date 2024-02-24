@@ -22,6 +22,14 @@ export class AuthComponent {
     })
    }
 
+   ngOnInit() {
+    this.authServices.isTokenValid().subscribe(user => {
+      if (user) {
+        this.router.navigate(['/'])
+      }
+    });
+  }
+
   login() {
       const formData: UserAuthentication = this.userForm.value;
       this.authServices.login(formData.email, formData.password);

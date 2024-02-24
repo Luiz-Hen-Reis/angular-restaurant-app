@@ -1,5 +1,5 @@
 <div *ngIf="currentRoute !== '/auth'; else authPage">
-    <app-header></app-header>
+    <app-header [user]="user"></app-header>
     <main>
       <app-tabs></app-tabs>
       <router-outlet></router-outlet>

@@ -43,7 +43,7 @@ export class AuthService {
         this.user = response
         this.token = response.token
         this.cookieService.set('user-token', this.token);
-        this.router.navigate(['/'])         
+        this.router.navigate(['/']);    
       });
   }
 
@@ -64,8 +64,13 @@ export class AuthService {
           })
         );
     } catch (error) {
-      console.log(error);
       return of(null); 
     }
+  }
+
+  logout() {
+    this.user = undefined;
+    this.cookieService.delete('user-token');
+    window.location.reload();
   }
 }
